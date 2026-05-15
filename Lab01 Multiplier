@@ -1,3 +1,6 @@
+/* Write a C++ program that asks the user for three numbers.
+Multiply the first two numbers together, then add the third number to that (mathematically this is a linear equation) */
+
 #include <iostream>
 using namespace std;
 
