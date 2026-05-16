@@ -1,0 +1,57 @@
+/* Write a C++ program that reads a series of test scores from the user into an array, 
+and then uses a loop to examine the array producing for output the maximum, minimum, and average score. */
+
+//
+//  main.cpp
+//  lab7arrays
+//
+//  Created by Marina Murphy on 2/24/25.
+//
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    //define the user input for # of objects in array
+    int testScores;
+    
+    //get the number of objects in the array
+    cout << "How many test scores do you have?: ";
+    cin >> testScores;
+    
+    //define an array for the test scores
+    double scores[testScores];
+    
+    //get the number value test scores
+    cout << "Please type in your test scores: ";
+    for (int i = 0; i < testScores; ++i){
+        cout << "Score #" << (i + 1) << ": ";
+        cin >> scores[i];
+    }
+    
+    //use max min score to find organize smallest and largest scores
+    //I learned this part from the internet so apologies if its odd
+    double highScore = scores[0];
+    double lowScore = scores[0];
+    double total = 0.0;
+    
+    for (int i = 0; i < testScores; ++i) {
+        if (scores[i] > highScore) {
+            highScore = scores[i];
+        }
+        if (scores[i] < lowScore) {
+            lowScore = scores[i];
+        }
+        total += scores[i];
+    }
+    
+    //calculate the average test score
+    double average = total / testScores;
+    
+    cout << "The highest score was: " << highScore << endl;
+    cout << "The low score was: " << lowScore << endl;
+    cout << "The average score was: " << average << endl;
+    
+    return 0;
+}
