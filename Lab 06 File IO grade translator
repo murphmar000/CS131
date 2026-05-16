@@ -1,0 +1,71 @@
+/* Take your Lab 4 Grade Translator logic to build a program that reads a file of names and numeric scores and outputs to a file 
+with the letter grade next to the name and numeric score, separated by a space. Output should also go to the screen for verification. */
+
+//
+//  main.cpp
+//  FileIOGradeTranslator
+//
+//  Created by Marina Murphy on 2/13/25.
+//
+
+#include <iostream> // for cin, cout
+#include <fstream> //for file in/out
+#include <string>
+using namespace std;
+
+int main() {
+    //the file with the data
+    string inputFileName = "/Users/marina/grades1.txt";
+    //the file with the translated grades
+    string outputFileName = "/Users/marina/newgrades.txt";
+    
+    ifstream inputFile(inputFileName); //opens the input file
+    ofstream outputFile(outputFileName);//opens the output file
+    
+    if (!inputFile) {
+        cerr << "Error with input file.\n";
+        return 1;
+    }
+    
+    if (!outputFile) {
+        cerr << "Error with output file.\n";
+        return 1;
+    }
+    
+    string name;
+    int testscore;
+    
+    //reads the input file line by line
+    while (inputFile >> name >> testscore) {
+        //prints name and test score to the console
+        cout << name << " " << testscore << " ";
+        
+        //calculates grades
+        if (testscore >= 90) {
+            cout << "A\n";
+            outputFile << name << " " << testscore << " A\n";
+        }
+        else if (testscore >= 80) {
+            cout << "B\n";
+            outputFile << name << " " << testscore << " B\n";
+        }
+        else if (testscore >= 70){
+            cout << "C\n";
+            outputFile << name << " " << testscore << " C\n";
+        }
+        else if (testscore >= 60){
+            cout << "D\n";
+            outputFile << name << " " << testscore << " D\n";
+        }
+        else {
+            cout << "F\n";
+            outputFile << name << " " << testscore << " F\n";
+        }
+    }
+    
+    //close input and output files
+    inputFile.close();
+    outputFile.close();
+    
+    return 0;
+}
