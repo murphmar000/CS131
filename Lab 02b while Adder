@@ -1,0 +1,39 @@
+/* Write a C++ program that uses a while or do-while loop to ask the for numbers to add,
+continuing to add numbers until the user enters a 0 or uses some other mechanism to stop the loop.
+At the end of the program print the total. */
+
+/
+//  main.cpp
+//  Adder While Loop
+//
+//  Created by Marina Murphy on 1/27/25.
+//
+
+//allows for the use of input & output via cin & cout
+#include <iostream>
+//allows use of cin & cout without having to include std:: before them each time
+using namespace std;
+
+//main body of code
+int main() {
+    //declare the user's number input variable
+    //the second part is declaring the sum of whatever numbers the user inputs
+    int usernumber, usersum = 0 ;
+    
+    //I chose a do-while loop because a simple while loop for this seemed difficult
+    do {
+        //user inputs numbers as prompted
+        cout << "Type a number to do addition. Type 0 to stop: ";
+        cin >> usernumber;
+        
+        //the program adds together whatever numbers the user inputs
+        usersum += usernumber;
+        
+        //program will stop when user types 0
+    } while (usernumber != 0);
+    //prints the total
+    cout << "The total is: " << usersum << "\n";
+    
+    //the return 0 ends the program
+    return 0;
+}
