@@ -1,0 +1,64 @@
+/* Write a C++ program that generates a random number using the following code:
+
+// Added in the header
+#include <stdlib.h>
+#include <time.h>
+// Added in the main body
+int numberToGuess, numberGuessed, numberOfGuesses=3;
+// initialize random number
+srand(time(NULL));
+numberToGuess = rand() % 10 + 1;
+
+After the random number has been generated (a number from 1 - 10), use some kind of loop to give the user as many guesses as is in the variable numberOfGuesses.  
+Use whatever loop you think works best for you.  If the guessed number is too low the program should say "Higher" and if the guessed number is too high the program should say "Lower".  
+If the user guesses the number the program should say "Congratulations!" or something like that.  Feel free to prompt the user in your own colorful way.
+*/
+
+//
+//  main.cpp
+//  NumberGuesserDoWhile
+//
+//  Created by Marina Murphy on 1/29/25.
+//
+#include <iostream>
+//added in header
+#include <stdlib.h>
+#include <time.h>
+
+//allows use of cin & cout without having to include std:: before them each time
+using namespace std;
+
+//main body of code
+int main() {
+    //added in main body
+    int numberToGuess, numberGuessed, numberOfGuesses=3;
+    int guessesMade = 0;
+    //initialize random number
+    srand(time(NULL));
+    numberToGuess = rand() % 10 + 1;
+    
+    cout << "Guess a number between 1 and 10. You have 3 tries.\n";
+    //use do-while for the user guesses
+    do {
+        cout << "Guess #" << (guessesMade + 1) << ": ";
+        cin >> numberGuessed;
+                //the ++ adds 1 each time the user makes a guess
+                guessesMade++;
+
+                if (numberGuessed < numberToGuess) {
+                    cout << "Higher.\n";
+                } else if (numberGuessed > numberToGuess) {
+                    cout << "Lower.\n";
+                } else {
+                    cout << "That is the correct number.\n";
+                    return 0;
+                }
+        
+    } while (guessesMade < numberOfGuesses);
+    
+    //if the user doesn't make the correct guess in 3 tries, it exits the do-while loop
+    cout << "The correct number was " << numberToGuess << ".\n";
+    
+    //ends the program
+    return 0;
+}
