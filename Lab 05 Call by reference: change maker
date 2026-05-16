@@ -1,0 +1,51 @@
+/* Write a program that takes a number of cents from the user and outputs the smallest number of coins made up of quarters, 
+dimes, nickels and pennies that equal the value of total cents received. 
+The conversion should be made by a call by reference function that uses the variables quarters, dimes, nickels and pennies. */
+
+/
+//  main.cpp
+//  CallbyReference
+//
+//  Created by Marina Murphy on 2/10/25.
+//
+
+#include <iostream>
+using namespace std;
+
+void makeChange(int amount, int& dollars, int& quarters, int& dimes, int& nickels, int& pennies) {
+    //number of dollar bills (100 because 100 pennies in 1 dollar)
+    dollars = amount / 100;
+    amount %= 100;
+    //number of quarters
+    quarters = amount / 25;
+    amount %= 100;
+    //number of dimes
+    dimes = amount / 10;
+    amount %= 10;
+    //number of nickles
+    nickels = amount / 5;
+    amount %= 5;
+    //number of pennies is whatever is leftover
+    pennies = amount;
+}
+
+int main()
+{
+    int amount, dollars, quarters, dimes, nickels, pennies;
+    
+    //prompt user for number
+    cout << "Enter a number in cents: ";
+    cin >> amount;
+    
+    //call makeChange to do the cents calculation
+    makeChange(amount, dollars, quarters, dimes, nickels, pennies);
+    
+    //prints the results
+    cout << "Dollars: " << dollars << endl;
+    cout << "Quarters: " << quarters << endl;
+    cout << "Dimes: " << dimes << endl;
+    cout << "Nickels: " << nickels << endl;
+    cout << "Pennies: " << pennies << endl;
+    
+    return 0;
+}
