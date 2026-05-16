@@ -1,0 +1,35 @@
+/* Write a C++ program that asks the user for a test score.
+
+Use a series of if and else if statements to compare the score to the standard grading scale (>= 90 for an A, 80-89 for a B, etc.). The code should then output the corresponding letter grade.
+
+For example, if the user inputs 75, the program should output "C". */
+
+#include <iostream>
+using namespace std;
+
+//the main body of the code
+int main() {
+    //declare the test score variable
+    int testscore;
+    
+    //ask for a numerical test score
+    cout << "Enter a test score between 0 and 100 to check your grade: ";
+    cin >> testscore;
+    
+    //give a letter grade depending on what number range the test score fell into
+    if (testscore >= 90){
+        cout << "A\n";
+    }
+    else if (testscore >= 80){
+        cout << "B\n";
+    }
+    else if (testscore >= 70){
+        cout << "C\n";
+    }
+    else if (testscore >= 60){
+        cout << "D\n";
+    }
+    else {
+        cout << "F\n";
+    }
+}
